@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Directive | AI TASK IQ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="process_styles.css"> <!-- Reusing glass cards -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Specific Styles for About Page */
+        .page-header {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .text-block {
+            line-height: 1.8;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .mission-log-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .log-entry {
+            border: 1px solid var(--glass-border);
+            background: rgba(4, 30, 66, 0.4);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .log-entry:hover {
+            border-color: var(--accent-orange);
+            background: rgba(4, 30, 66, 0.6);
+        }
+
+        .log-date {
+            font-family: var(--font-mono);
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .log-title {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .log-excerpt {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-glow-orb"></div>
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">AI TASK IQ <span class="blink">_</span></a>
+        <div class="nav-links">
+            <a href="index.html">Operations</a>
+            <a href="about.html" class="active">Mission Data</a>
+            <a href="questionnaire.html" class="cta-button-small">Initialize Protocol</a>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="hero-title" style="font-size: 3.5rem;">MISSION <span class="text-gradient">OBJECTIVE</span></h1>
+            <p class="hero-sub">We are the architects of the autonomous economy.</p>
+        </header>
+
+        <!-- The Force / About Section -->
+        <section class="glass-panel" style="padding: 3rem; margin-bottom: 4rem;">
+            <h2 style="color: white; margin-bottom: 1.5rem;">// WHAT IS THE FORCE?</h2>
+            <div class="text-block">
+                <p>
+                    <strong>"The Force"</strong> is our term for the combined power of Human Ingenuity and Artificial
+                    Intelligence.
+                    Most agencies treat AI as a tool; we treat it as a workforce.
+                </p>
+                <p>
+                    We build <strong>Sovereign Digital Architectures</strong>—systems that don't just "help" you work,
+                    they do the work for you.
+                    From the moment a lead clicks an ad to the moment an invoice is paid, our agents are the invisible
+                    force moving your business forward.
+                </p>
+                <p>
+                    Our mission is simple: <strong>To eliminate the "Drudgery Tax"</strong>—the wasted hours humans
+                    spend on robotic tasks.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Summary -->
+        <section class="grid-section">
+            <div class="section-header">
+                <span class="sub-label">CORE CAPABILITIES</span>
+                <h2>FULL SPECTRUM <span class="highlight">DOMINANCE</span></h2>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card glass-panel">
+                    <h3>🔍 AI Audits</h3>
+                    <p>We map your entire workflow to find the "time leaks".</p>
+                </div>
+                <div class="bento-card glass-panel">
+                    <h3>🤖 Agent Development</h3>
+                    <p>Custom-coded Python/Node.js agents that live on your servers.</p>
+                </div>
+                <div class="bento-card glass-panel">
+                    <h3>🔗 Integration</h3>
+                    <p>Connecting your CRMs (HubSpot, Salesforce) to the AI Brain.</p>
+                </div>
+                <div class="bento-card glass-panel">
+                    <h3>🛡️ Sovereign Deployment</h3>
+                    <p>We deploy on your infrastructure (AWS/Vercel) so you own the data.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Log (Blog) -->
+        <section class="process-section">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <span class="sub-label">MISSION LOG</span>
+                <h2>INTELLIGENCE <span class="highlight">BRIEFINGS</span></h2>
+                <p class="section-sub">Latest updates, strategy guides, and system optimizations.</p>
+            </div>
+
+            <div class="mission-log-grid">
+                <!-- Log 1 -->
+                <article class="log-entry">
+                    <span class="log-date">2024.02.10</span>
+                    <h3 class="log-title">Why "Daily Blogging" is Dead for AI Agencies</h3>
+                    <p class="log-excerpt">Search engines now value "Programmatic Utilities" over generic content. Here
+                        is how we scale SEO...</p>
+                </article>
+
+                <!-- Log 2 -->
+                <article class="log-entry">
+                    <span class="log-date">2024.02.05</span>
+                    <h3 class="log-title">The "Drudgery Tax" Calculation</h3>
+                    <p class="log-excerpt">How much is manual data entry costing your firm? We break down the math of
+                        lost potential.</p>
+                </article>
+
+                <!-- Log 3 -->
+                <article class="log-entry">
+                    <span class="log-date">2024.01.28</span>
+                    <h3 class="log-title">System V2.1 Deployment Notes</h3>
+                    <p class="log-excerpt">New upgrades to the "Scout Swarm" lead generation protocol. Faster response
+                        times, higher accuracy.</p>
+                </article>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="margin-top: 5rem;">
+        <div class="footer-content">
+            <div class="logo-small">AI TASK IQ // EST. 2024</div>
+            <div class="footer-links">
+                <a href="index.html">Return to Operations</a>
+                <a href="#">Privacy Protocol</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
