@@ -118,8 +118,16 @@
     }
 
     50% {
-        filter: brightness(1.2);
+        filter: brightness(1.05);
     }
+}
+
+/* Briefing Video */
+#briefing-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .screen-reflection {
@@ -171,8 +179,9 @@
     box-shadow: 0 0 30px rgba(255, 76, 0, 0.2);
     cursor: pointer;
     transition: all 0.4s;
-    backdrop-filter: blur(5px);
-    z-index: 25;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 10;
     animation: button-pulse 4s ease-in-out infinite;
 }
 

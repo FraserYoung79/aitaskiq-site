@@ -1,7 +1,8 @@
 /* Process Section */
 .process-section {
     padding: 5rem 3rem;
-    max-width: 1400px;
+    max-width: 1200px;
+    /* Standardized to 1200px for alignment */
     margin: 0 auto;
 }
 

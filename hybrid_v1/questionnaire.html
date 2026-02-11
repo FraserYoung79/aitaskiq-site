@@ -18,50 +18,116 @@
         <a href="index.html" class="cta-button-ghost">Return to Base</a>
     </nav>
 
-    <div class="container" style="max-width: 600px; margin: 4rem auto; padding: 0 20px;">
+    <div class="container protocol-container">
         <div class="glass-panel">
-            <h2 style="text-align: center; margin-bottom: 1rem;">INITIALIZE PROTOCOL</h2>
-            <p style="text-align: center; color: var(--text-gray); margin-bottom: 2rem;">
+            <!-- ROI Flasher -->
+            <div class="roi-flasher">
+                <span class="blink status-text">⚠ COMPLETE
+                    PROTOCOL TO UNLOCK ROI MATRIX</span>
+            </div>
+
+            <h2 class="section-title">INITIALIZE PROTOCOL</h2>
+            <p class="section-subtitle">
                 Configure the parameters for your autonomous deployment.
             </p>
 
-            <form action="#" method="POST"> <!-- Placeholder Action -->
+            <form id="mission-uplink" onsubmit="transmitMission(event)">
 
-                <div class="form-group" style="margin-bottom: 1.5rem;">
-                    <label
-                        style="display: block; margin-bottom: 0.5rem; color: var(--accent-orange); font-family: var(--font-mono);">01
-                        // TARGET_SECTOR</label>
-                    <select class="glass-input"
-                        style="width: 100%; padding: 12px; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
-                        <option>Legal Services</option>
-                        <option>Healthcare / Medical</option>
-                        <option>Construction / AEC</option>
-                        <option>Other / Classified</option>
+                <div class="form-group">
+                    <label for="sector" class="form-label">01 // TARGET_SECTOR</label>
+                    <select id="sector" class="glass-input" required>
+                        <option value="" disabled selected>Select Sector...</option>
+                        <option value="Legal">Legal Services</option>
+                        <option value="Medical">Healthcare / Medical</option>
+                        <option value="Construction">Construction / AEC</option>
+                        <option value="Real Estate">Real Estate</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Ecommerce">E-commerce</option>
+                        <option value="Agencies">Agencies</option>
+                        <option value="HR">HR</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Sales">High-Ticket Sales</option>
+                        <option value="Logistics">Logistics / Transport</option>
+                        <option value="Hospitality">Hospitality / Events</option>
+                        <option value="Other">Other / Classified</option>
                     </select>
                 </div>
 
-                <div class="form-group" style="margin-bottom: 1.5rem;">
-                    <label
-                        style="display: block; margin-bottom: 0.5rem; color: var(--accent-orange); font-family: var(--font-mono);">02
-                        // MISSION_OBJECTIVE</label>
-                    <textarea class="glass-input" rows="4"
-                        placeholder="Describe the inefficiency you wish to eliminate..."
-                        style="width: 100%; padding: 12px; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;"></textarea>
+                <div class="form-group">
+                    <label for="objective" class="form-label">02 // MISSION_OBJECTIVE</label>
+                    <textarea id="objective" class="glass-input" rows="4" required
+                        placeholder="Describe the inefficiency you wish to eliminate..."></textarea>
                 </div>
 
-                <div class="form-group" style="margin-bottom: 1.5rem;">
-                    <label
-                        style="display: block; margin-bottom: 0.5rem; color: var(--accent-orange); font-family: var(--font-mono);">03
-                        // CONTACT_UPLINK</label>
-                    <input type="email" placeholder="agent@company.com" class="glass-input"
-                        style="width: 100%; padding: 12px; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white;">
+                <div class="form-group">
+                    <label for="email" class="form-label">03 // CONTACT_UPLINK</label>
+                    <input type="email" id="email" placeholder="agent@company.com" class="glass-input" required>
                 </div>
 
-                <button type="submit" class="cta-button-primary" style="width: 100%; justify-content: center;">
+                <button type="submit" id="transmit-btn" class="cta-button-primary full-width flex-center">
                     TRANSMIT REQUEST
                 </button>
+                <p id="status-msg" class="status-msg">
+                </p>
 
             </form>
+
+            <script>
+                async function transmitMission(e) {
+                    e.preventDefault();
+
+                    const btn = document.getElementById('transmit-btn');
+                    const status = document.getElementById('status-msg');
+
+                    // 1. Lock UI
+                    btn.disabled = true;
+                    btn.innerHTML = 'ESTABLISHING UPLINK... <span class="blink">_</span>';
+                    status.style.color = 'var(--text-gray)';
+                    status.innerText = 'Encrypting payload...';
+
+                    // 2. Gather Data
+                    const payload = {
+                        sector: document.getElementById('sector').value,
+                        objective: document.getElementById('objective').value,
+                        email: document.getElementById('email').value,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    // 3. Define Webhook (Replace this with your LIVE n8n Webhook URL)
+                    const WEBHOOK_URL = 'https://YOUR_N8N_INSTANCE_URL/webhook/lead-intake';
+
+                    try {
+                        // Simulating network delay for effect (Remove this setTimeout in production if desired)
+                        await new Promise(r => setTimeout(r, 1500));
+
+                        // Uncomment this to actually send data when you have the URL
+                        // const response = await fetch(WEBHOOK_URL, {
+                        //     method: 'POST',
+                        //     headers: { 'Content-Type': 'application/json' },
+                        //     body: JSON.stringify(payload)
+                        // });
+
+                        // if (!response.ok) throw new Error('Uplink failed');
+
+                        // 4. Success State
+                        btn.innerHTML = 'TRANSMISSION COMPLETE';
+                        btn.style.background = 'var(--success-green, #27c93f)';
+                        btn.style.borderColor = '#27c93f';
+                        status.style.color = '#27c93f';
+                        status.innerText = '// ACKNOWLEDGED. AGENT ASSIGNED.';
+
+                        // Optional: Reset form after delay
+                        // setTimeout(() => { ... }, 5000);
+
+                    } catch (error) {
+                        console.error(error);
+                        btn.disabled = false;
+                        btn.innerHTML = 'RETRY TRANSMISSION';
+                        status.style.color = 'red';
+                        status.innerText = 'ERROR: SIGNAL LOST. CHECK LOGS.';
+                    }
+                }
+            </script>
         </div>
     </div>
 

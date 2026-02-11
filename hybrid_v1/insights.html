@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Insights | AI TASK IQ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1600px;
+            /* Wider container to fit 4 cards */
+            margin: 8rem auto 4rem auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 1100px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .blog-card {
+            background: rgba(4, 30, 66, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: white;
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-orange);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .blog-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-date {
+            color: var(--accent-orange);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: var(--accent-orange);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-glow-orb"></div>
+    <div class="scanlines"></div>
+
+    <nav class="glass-nav">
+        <a href="index.html" class="logo">AI TASK IQ <span class="blink">_</span></a>
+        <div class="nav-links">
+            <a href="index.html">Operations</a>
+            <a href="insights.html" class="active">Mission Data</a>
+            <!-- Renamed to match user's "Mission Data" or kept simple? User said "Mission Insights" implies blog. Actually existing link says Mission Data -> about.html. I will add Insights as a new link or replace Mission Data? Content says "Mission Data" is about.html. I will add "Intel" or "Insights". Let's use "Intel" to fit the military/spy theme. -->
+            <a href="questionnaire.html" class="cta-button-small">Initialize Protocol</a>
+        </div>
+    </nav>
+
+    <div class="header-section text-center mt-8">
+        <h1 class="header-title">MISSION <span class="text-gradient">INTEL</span></h1>
+        <p class="header-subtitle">
+            Strategic analysis of the autonomous frontier.
+        </p>
+    </div>
+
+    <div class="blog-grid">
+        <!-- Article 1 -->
+        <a href="insights/punching-above-weight.html" class="blog-card">
+            <!-- Image 1 Placeholder/Real -->
+            <img src="/Users/fraseryoung/.gemini/antigravity/brain/7df24d56-9f2c-4aba-8afb-76941e29a98f/blog_header_punching_weight_1770777137790.png"
+                alt="Punching Above Weight" class="blog-image">
+            <div class="blog-content">
+                <div class="blog-date">2026-02-05 // STRATEGY</div>
+                <div class="blog-title">The "Punching Above Your Weight" Era</div>
+                <div class="blog-excerpt">Why 2026 is the year of the Micro-Enterprise, and how AI has become the
+                    ultimate equalizer for small business.</div>
+                <div class="read-more">ACCESS FILE →</div>
+            </div>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="insights/speed-as-a-feature.html" class="blog-card">
+            <img src="/Users/fraseryoung/.gemini/antigravity/brain/7df24d56-9f2c-4aba-8afb-76941e29a98f/blog_header_speed_feature_1770777212735.png"
+                alt="Speed as a Feature" class="blog-image">
+            <div class="blog-content">
+                <div class="blog-date">2026-02-08 // TACTICS</div>
+                <div class="blog-title">Speed as a Feature</div>
+                <div class="blog-excerpt">The high cost of the "wait-and-see" approach. In 2026, market share is won by
+                    those who iterate faster.</div>
+                <div class="read-more">ACCESS FILE →</div>
+            </div>
+        </a>
+
+        <!-- Article 3 -->
+        <a href="insights/tools-to-teammates.html" class="blog-card">
+            <img src="/Users/fraseryoung/.gemini/antigravity/brain/7df24d56-9f2c-4aba-8afb-76941e29a98f/blog_header_tools_teammates_1770777264748.png"
+                alt="Tools to Teammates" class="blog-image">
+            <div class="blog-content">
+                <div class="blog-date">2026-02-12 // IMPLEMENTATION</div>
+                <div class="blog-title">From Tools to Teammates</div>
+                <div class="blog-excerpt">Building your first AI-Integrated workflow. Moving from abstract "AI" to
+                    concrete "Digital Workers".</div>
+                <div class="read-more">ACCESS FILE →</div>
+            </div>
+        </a>
+
+        <!-- Article 4 -->
+        <a href="insights/zero-touch-admin.html" class="blog-card">
+            <img src="/Users/fraseryoung/.gemini/antigravity/brain/7df24d56-9f2c-4aba-8afb-76941e29a98f/blog_header_zero_touch_admin_1770778248589.png"
+                alt="The Zero-Touch Admin" class="blog-image">
+            <div class="blog-content">
+                <div class="blog-date">2026-02-14 // OPERATIONAL PHILOSOPHY</div>
+                <div class="blog-title">The "Zero-Touch" Admin</div>
+                <div class="blog-excerpt">Automating the boring to elevate the human. Why manual admin is making your
+                    business impersonal.</div>
+                <div class="read-more">ACCESS FILE →</div>
+            </div>
+        </a>
+    </div>
+
+</body>
+
+</html>

@@ -61,6 +61,7 @@
         <a href="index.html" class="logo">AI TASK IQ <span class="blink">_</span></a>
         <div class="nav-links">
             <a href="index.html">Operations</a>
+            <a href="insights.html">Mission Intel</a>
             <a href="about.html">Mission Data</a>
             <a href="questionnaire.html" class="cta-button-small">Initialize Protocol</a>
         </div>
@@ -69,6 +70,23 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
+            <!-- Rocket Launch Animation -->
+            <div class="rocket-container">
+                <div class="rocket-icon">🚀</div>
+                <div class="rocket-exhaust">
+                    <span class="exhaust-particle fire"></span>
+                    <span class="exhaust-particle smoke smoke-1"></span>
+                    <span class="exhaust-particle smoke smoke-2"></span>
+                    <span class="exhaust-particle smoke smoke-3"></span>
+                    <span class="exhaust-particle smoke smoke-4"></span>
+                    <span class="exhaust-particle smoke smoke-5"></span>
+                    <span class="exhaust-particle smoke smoke-6"></span>
+                    <span class="exhaust-particle smoke smoke-7"></span>
+                    <span class="exhaust-particle smoke smoke-8"></span>
+                    <span class="exhaust-particle smoke smoke-9"></span>
+                </div>
+            </div>
+
             <div class="status-badge">
                 <span class="status-dot"></span> SYSTEM ONLINE // V2.1
             </div>
@@ -83,7 +101,7 @@
                 <a href="questionnaire.html" class="cta-button-primary">
                     <span class="icon">⚡</span> COMMENCE SITE SCAN
                 </a>
-                <a href="#work" class="cta-button-ghost">
+                <a href="questionnaire.html" class="cta-button-ghost">
                     VIEW ROI MATRIX
                 </a>
             </div>
@@ -110,6 +128,64 @@
         </div>
     </section>
 
+    <!-- ROI Matrix Section -->
+    <section id="roi-matrix" class="roi-section">
+        <div class="section-header">
+            <span class="sub-label">ROI ANALYSIS</span>
+            <h2>HUMAN VS <span class="highlight">MACHINE</span></h2>
+            <p class="section-sub">The mathematical case for autonomous operations.</p>
+        </div>
+
+        <div class="roi-container">
+            <div class="comparison-table glass-panel">
+                <div class="table-header">
+                    <div class="col-metric">METRIC</div>
+                    <div class="col-human">TRADITIONAL EMPLOYEE</div>
+                    <div class="col-ai">AI AGENT</div>
+                </div>
+
+                <!-- Row 1: Speed -->
+                <div class="table-row">
+                    <div class="col-metric">Reaction Time</div>
+                    <div class="col-human"><span class="status-badge bad">15-60 Mins</span></div>
+                    <div class="col-ai"><span class="status-badge good">Instant (&lt;1s)</span></div>
+                </div>
+
+                <!-- Row 2: Availability -->
+                <div class="table-row">
+                    <div class="col-metric">Availability</div>
+                    <div class="col-human"><span class="status-badge warn">40 Hrs/Wk</span></div>
+                    <div class="col-ai"><span class="status-badge good">168 Hrs/Wk (24/7)</span></div>
+                </div>
+
+                <!-- Row 3: Cost -->
+                <div class="table-row">
+                    <div class="col-metric">Cost Basis</div>
+                    <div class="col-human"><span class="status-badge bad">Salary + Benefits</span></div>
+                    <div class="col-ai"><span class="status-badge good">Flat Monthly Fee</span></div>
+                </div>
+
+                <!-- Row 4: Accuracy -->
+                <div class="table-row">
+                    <div class="col-metric">Error Rate</div>
+                    <div class="col-human"><span class="status-badge warn">Human Error (3-5%)</span></div>
+                    <div class="col-ai"><span class="status-badge infinite">Near Zero</span></div>
+                </div>
+
+                <!-- Row 5: Memory -->
+                <div class="table-row">
+                    <div class="col-metric">Memory</div>
+                    <div class="col-human"><span class="status-badge warn">Forgetful</span></div>
+                    <div class="col-ai"><span class="status-badge infinite">Infinite Perfect Recall</span></div>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="questionnaire.html" class="cta-button-primary">DEPLOY THE ADVANTAGE</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Video Explainer Section -->
     <section class="video-section">
         <link rel="stylesheet" href="video_section.css">
@@ -121,10 +197,10 @@
 
                 <!-- Content -->
                 <div class="screen-content">
-                    <div class="play-button"></div>
-                    <h3
-                        style="margin-top: 150px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-orange); letter-spacing: 3px; opacity: 0.8;">
-                        WATCH BRIEFING</h3>
+                    <video id="briefing-video" controls autoplay muted loop>
+                        <source src="../assets/master_explainer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
             <div class="laptop-base">
@@ -173,6 +249,7 @@
     </section>
 
     <!-- Capabilities Section (Tasks) -->
+    <!-- Capabilities Section (Tasks) -->
     <section class="grid-section" id="services">
         <div class="section-header">
             <span class="sub-label">CAPABILITIES</span>
@@ -183,121 +260,193 @@
         <div class="bento-grid">
             <!-- Card 1 -->
             <div class="bento-card glass-panel">
-                <div class="card-top">
+                <div class="card-left-col">
                     <div class="card-icon">⚡</div>
-                    <div class="card-check">✔</div>
                 </div>
-                <h3>Lead Intake & Qualification</h3>
-                <p>Instantly filter and qualify incoming leads 24/7 across email, forms, and chat.</p>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Lead Intake</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Instantly filter and qualify incoming leads 24/7 across email, forms, and chat.</p>
+                </div>
             </div>
 
             <!-- Card 2 -->
             <div class="bento-card glass-panel">
-                <div class="card-top">
+                <div class="card-left-col">
                     <div class="card-icon">💬</div>
-                    <div class="card-check">✔</div>
                 </div>
-                <h3>Email & SMS Follow-ups</h3>
-                <p>Nurture prospects with automated, personalized messages until they convert.</p>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Smart Follow-ups</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Nurture prospects with automated, personalized messages until they convert.</p>
+                </div>
             </div>
 
             <!-- Card 3 -->
             <div class="bento-card glass-panel">
-                <div class="card-top">
+                <div class="card-left-col">
                     <div class="card-icon">🔄</div>
-                    <div class="card-check">✔</div>
                 </div>
-                <h3>CRM Updates</h3>
-                <p>Keep customer data synchronized across Salesforce, HubSpot, and Pipedrive.</p>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>CRM Sync</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Keep customer data synchronized across Salesforce, HubSpot, and Pipedrive.</p>
+                </div>
             </div>
 
             <!-- Card 4 -->
             <div class="bento-card glass-panel">
-                <div class="card-top">
+                <div class="card-left-col">
                     <div class="card-icon">📅</div>
-                    <div class="card-check">✔</div>
                 </div>
-                <h3>Scheduling & Reminders</h3>
-                <p>Automate calendar bookings, rescheduling, and appointment reminders to reduce no-shows.</p>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Scheduling</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Automate calendar bookings, rescheduling, and appointment reminders.</p>
+                </div>
             </div>
 
             <!-- Card 5 -->
-            <div class="bento-card glass-panel wide-card">
-                <div class="card-top">
+            <div class="bento-card glass-panel">
+                <div class="card-left-col">
+                    <div class="card-icon">📄</div>
+                </div>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Invoicing</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Generate and send estimates, track payments, and follow up.</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bento-card glass-panel">
+                <div class="card-left-col">
                     <div class="card-icon">🔀</div>
-                    <div class="card-check">✔</div>
                 </div>
-                <h3>Internal Task Routing</h3>
-                <div class="workflow-visual">
-                    <span class="badg">Inquiry</span> <span class="arrow">→</span> <span class="badg ai">AI
-                        Analysis</span> <span class="arrow">→</span> <span class="badg team">Sales Team</span>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Routing</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Seamlessly hand off complex tasks between AI agents and human teams.</p>
                 </div>
-                <p>Seamlessly hand off complex tasks between AI agents and human teams.</p>
             </div>
         </div>
     </section>
 
-    <!-- Target Sectors Grid -->
-    <section class="process-section" id="sectors">
+    <!-- Target Sectors Grid (Redesigned) -->
+    <section class="process-section sector-section-padding" id="sectors">
         <div class="section-header">
             <span class="sub-label">TARGET SECTORS</span>
             <h2>BUILT FOR <span class="highlight">YOUR INDUSTRY</span></h2>
         </div>
 
-        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="sector-grid">
             <!-- Legal -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">⚖️</div>
-                <h3>Legal Services</h3>
-                <p>Automate client intake, discovery document review, and case research.</p>
+            <div class="sector-card">
+                <div class="sector-icon">⚖️</div>
+                <div class="sector-info">
+                    <h4>Legal</h4>
+                    <p>Intake & Research</p>
+                </div>
             </div>
             <!-- Medical -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">⚕️</div>
-                <h3>Healthcare & Clinics</h3>
-                <p>Streamline patient triage, appointment booking, and insurance verification.</p>
+            <div class="sector-card">
+                <div class="sector-icon">⚕️</div>
+                <div class="sector-info">
+                    <h4>Medical</h4>
+                    <p>Triage & Booking</p>
+                </div>
             </div>
             <!-- Trades -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">🏗️</div>
-                <h3>Construction & Trades</h3>
-                <p>Automate bid estimation, project tracking, and subcontractor scheduling.</p>
+            <div class="sector-card">
+                <div class="sector-icon">🏗️</div>
+                <div class="sector-info">
+                    <h4>Construction</h4>
+                    <p>Bids & Tracking</p>
+                </div>
             </div>
             <!-- Real Estate -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">🏠</div>
-                <h3>Real Estate</h3>
-                <p>Qualify buyer leads 24/7 and automate showing confirmations.</p>
+            <div class="sector-card">
+                <div class="sector-icon">🏠</div>
+                <div class="sector-info">
+                    <h4>Real Estate</h4>
+                    <p>Leads & Showings</p>
+                </div>
             </div>
             <!-- Finance -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">💰</div>
-                <h3>Financial Services</h3>
-                <p>Simplify tax document collection, compliance checks, and client onboarding.</p>
+            <div class="sector-card">
+                <div class="sector-icon">💰</div>
+                <div class="sector-info">
+                    <h4>Finance</h4>
+                    <p>Tax & Compliance</p>
+                </div>
             </div>
             <!-- E-comm -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">🛍️</div>
-                <h3>E-commerce</h3>
-                <p>Handle customer support tickets, inventory alerts, and order tracking.</p>
+            <div class="sector-card">
+                <div class="sector-icon">🛍️</div>
+                <div class="sector-info">
+                    <h4>E-commerce</h4>
+                    <p>Support & Orders</p>
+                </div>
             </div>
             <!-- Agencies -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">📢</div>
-                <h3>Marketing Agencies</h3>
-                <p>Automate monthly reporting, content generation, and ad performance alerts.</p>
+            <div class="sector-card">
+                <div class="sector-icon">📢</div>
+                <div class="sector-info">
+                    <h4>Agencies</h4>
+                    <p>Reports & Content</p>
+                </div>
             </div>
             <!-- Recruitment -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">🤝</div>
-                <h3>Recruitment & HR</h3>
-                <p>Screen resumes instantly and automate interview coordination.</p>
+            <div class="sector-card">
+                <div class="sector-icon">🤝</div>
+                <div class="sector-info">
+                    <h4>HR</h4>
+                    <p>Screening & Interviews</p>
+                </div>
             </div>
             <!-- Consulting -->
-            <div class="bento-card glass-panel">
-                <div class="card-icon">💼</div>
-                <h3>Consulting</h3>
-                <p>Automate client onboarding, contract generation, and meeting prep.</p>
+            <div class="sector-card">
+                <div class="sector-icon">💼</div>
+                <div class="sector-info">
+                    <h4>Consulting</h4>
+                    <p>Onboarding</p>
+                </div>
+            </div>
+            <!-- High-Ticket Sales -->
+            <div class="sector-card">
+                <div class="sector-icon">🎯</div>
+                <div class="sector-info">
+                    <h4>Sales</h4>
+                    <p>Lead Gen & Outreach</p>
+                </div>
+            </div>
+            <!-- Logistics -->
+            <div class="sector-card">
+                <div class="sector-icon">🚚</div>
+                <div class="sector-info">
+                    <h4>Logistics</h4>
+                    <p>Dispatch & Routing</p>
+                </div>
+            </div>
+            <!-- Hospitality -->
+            <div class="sector-card">
+                <div class="sector-icon">🥂</div>
+                <div class="sector-info">
+                    <h4>Hospitality</h4>
+                    <p>Booking & Guest Services</p>
+                </div>
             </div>
         </div>
     </section>
