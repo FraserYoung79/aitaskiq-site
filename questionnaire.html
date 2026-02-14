@@ -102,13 +102,6 @@
                     data.timestamp = new Date().toISOString();
                     data.source = 'mission_uplink_v1_direct';
 
-                    // 3. Uplink via Netlify Forms AJAX
-                    const response = await fetch('/', {
-                        method: 'POST',
-                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: new URLSearchParams(formData).toString()
-                    });
-
                     if (response.ok) {
                         // 4. Success State
                         form.style.display = 'none';
