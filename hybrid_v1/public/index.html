@@ -163,48 +163,52 @@
         </div>
 
         <div class="roi-container">
-            <div class="comparison-table glass-panel">
-                <div class="table-header">
-                    <div class="col-metric">METRIC</div>
-                    <div class="col-human">TRADITIONAL EMPLOYEE</div>
-                    <div class="col-ai">AI AGENT</div>
+            <!-- ROI CALCULATOR START -->
+            <div class="roi-calc-card">
+                <div class="calc-title">INITIALIZING ROI ANALYZER</div>
+
+                <div class="calc-input-group">
+                    <div class="calc-label">
+                        <span class="label-text">TEAM SIZE</span>
+                        <span class="label-val" id="teamSizeVal">12 UNIT(S)</span>
+                    </div>
+                    <input type="range" id="teamSize" class="roi-slider" min="1" max="100" value="12">
                 </div>
 
-                <!-- Row 1: Speed -->
-                <div class="table-row">
-                    <div class="col-metric">Reaction Time</div>
-                    <div class="col-human"><span class="status-badge bad">15-60 Mins</span></div>
-                    <div class="col-ai"><span class="status-badge good">Instant (&lt;1s)</span></div>
+                <div class="calc-input-group">
+                    <div class="calc-label">
+                        <span class="label-text">HOURLY RATE (AVG)</span>
+                        <span class="label-val" id="hourlyRateVal">$45/HR</span>
+                    </div>
+                    <input type="range" id="hourlyRate" class="roi-slider" min="20" max="250" step="5" value="45">
                 </div>
 
-                <!-- Row 2: Availability -->
-                <div class="table-row">
-                    <div class="col-metric">Availability</div>
-                    <div class="col-human"><span class="status-badge warn">40 Hrs/Wk</span></div>
-                    <div class="col-ai"><span class="status-badge good">168 Hrs/Wk (24/7)</span></div>
+                <div class="calc-results">
+                    <div class="calc-result-item">
+                        <span class="calc-res-label">Traditional Labor Cost (Yearly)</span>
+                        <span class="calc-res-val" id="laborCost">$1,123,200</span>
+                    </div>
+                    <div class="calc-result-item">
+                        <span class="calc-res-label">Agentic reclaimed hours</span>
+                        <span class="calc-res-val" id="hours">+4,992 HRS</span>
+                    </div>
+                    <div class="calc-result-item" style="margin-top: 25px; border: none; align-items: baseline;">
+                        <div style="display: flex; flex-direction: column;">
+                            <span class="calc-res-label"
+                                style="color: var(--accent-orange); opacity: 1; font-weight: bold; font-size: 0.9rem;">RECLAIMABLE
+                                VALUE</span>
+                            <span style="font-size: 0.6rem; opacity: 0.4;">ESTIMATED ANNUAL MINIMUM</span>
+                        </div>
+                        <span class="calc-res-val roi-highlight" id="roi">$224,640</span>
+                    </div>
                 </div>
 
-                <!-- Row 3: Cost -->
-                <div class="table-row">
-                    <div class="col-metric">Cost Basis</div>
-                    <div class="col-human"><span class="status-badge bad">Salary + Benefits</span></div>
-                    <div class="col-ai"><span class="status-badge good">Flat Monthly Fee</span></div>
-                </div>
-
-                <!-- Row 4: Accuracy -->
-                <div class="table-row">
-                    <div class="col-metric">Error Rate</div>
-                    <div class="col-human"><span class="status-badge warn">Human Error (3-5%)</span></div>
-                    <div class="col-ai"><span class="status-badge infinite">Near Zero</span></div>
-                </div>
-
-                <!-- Row 5: Memory -->
-                <div class="table-row">
-                    <div class="col-metric">Memory</div>
-                    <div class="col-human"><span class="status-badge warn">Forgetful</span></div>
-                    <div class="col-ai"><span class="status-badge infinite">Infinite Perfect Recall</span></div>
+                <div class="calc-footer">
+                    <span>STOCHASTIC SYSTEM // B.09</span>
+                    <span>AITASKIQ V2.12</span>
                 </div>
             </div>
+            <!-- ROI CALCULATOR END -->
 
             <div class="text-center mt-3">
                 <a href="questionnaire.html" class="cta-button-primary">DEPLOY THE ADVANTAGE</a>
@@ -491,6 +495,40 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // ROI CALCULATOR LOGIC
+        const teamSize = document.getElementById('teamSize');
+        const hourlyRate = document.getElementById('hourlyRate');
+        const teamSizeVal = document.getElementById('teamSizeVal');
+        const hourlyRateVal = document.getElementById('hourlyRateVal');
+
+        const laborCostDisplay = document.getElementById('laborCost');
+        const hoursDisplay = document.getElementById('hours');
+        const roiDisplay = document.getElementById('roi');
+
+        function updateCalculations() {
+            if (!teamSize || !hourlyRate) return;
+            const size = parseInt(teamSize.value);
+            const rate = parseInt(hourlyRate.value);
+
+            teamSizeVal.innerText = size + ' UNIT(S)';
+            hourlyRateVal.innerText = '$' + rate + '/HR';
+
+            const yearlyLaborCost = size * rate * 2080;
+            const reclaimedHours = size * 2080 * 0.20;
+            const reclaimedValue = reclaimedHours * rate;
+
+            laborCostDisplay.innerText = '$' + yearlyLaborCost.toLocaleString();
+            hoursDisplay.innerText = '+' + Math.round(reclaimedHours).toLocaleString() + ' HRS';
+            roiDisplay.innerText = '$' + Math.round(reclaimedValue).toLocaleString();
+        }
+
+        if (teamSize && hourlyRate) {
+            teamSize.addEventListener('input', updateCalculations);
+            hourlyRate.addEventListener('input', updateCalculations);
+            updateCalculations();
+        }
+    </script>
 </body>
 
 </html>
