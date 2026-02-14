@@ -43,8 +43,7 @@
                 </div>
             </div>
 
-            <form id="uplink-form" name="mission-capture-v3" method="POST" data-netlify="true"
-                action="/questionnaire.html">
+            <form id="uplink-form" method="POST">
                 <input type="hidden" name="form-name" value="mission-capture-v3" />
                 <div class="form-group">
                     <label for="sector" class="form-label">01 // TARGET_SECTOR</label>
@@ -104,11 +103,11 @@
                     data.source = 'mission_uplink_v1_direct';
 
                     try {
-                        // 3. Uplink via Netlify Forms AJAX (Posting to explicit path to avoid SPA rewrite interference)
-                        const response = await fetch('/questionnaire.html', {
+                        // 3. Uplink via Netlify Function (The Bulletproof Way)
+                        const response = await fetch('/.netlify/functions/uplink', {
                             method: 'POST',
-                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                            body: new URLSearchParams(formData).toString()
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(data)
                         });
 
                         if (response.ok) {
