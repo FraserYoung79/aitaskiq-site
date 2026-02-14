@@ -1,0 +1,145 @@
+/* Process Section */
+.process-section {
+    padding: 5rem 3rem;
+    max-width: 1200px;
+    /* Standardized to 1200px for alignment */
+    margin: 0 auto;
+}
+
+.section-header {
+    margin-bottom: 4rem;
+}
+
+.sub-label {
+    display: inline-block;
+    padding: 6px 12px;
+    background: var(--accent-orange);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.section-sub {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    max-width: 600px;
+    margin-top: 1rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    position: relative;
+}
+
+.step-card {
+    position: relative;
+    padding: 2rem;
+    border-top: 2px solid var(--glass-border);
+    transition: all 0.3s;
+}
+
+.step-card:hover {
+    border-top-color: var(--accent-orange);
+    transform: translateY(-5px);
+}
+
+.step-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.05);
+    /* Ghost Number */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: var(--font-mono);
+}
+
+.step-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-orange);
+}
+
+.step-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.step-card p {
+    color: var(--text-gray);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Updated Bento Grid for Capabilities */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.card-check {
+    background: rgba(39, 201, 63, 0.2);
+    color: #27c93f;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.wide-card {
+    grid-column: span 2;
+    /* Spans 2 columns on desktop */
+}
+
+@media (max-width: 768px) {
+    .wide-card {
+        grid-column: span 1;
+    }
+}
+
+/* Workflow Visual Inside Card */
+.workflow-visual {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.badg {
+    padding: 4px 8px;
+    background: #333;
+    border-radius: 4px;
+    color: #ccc;
+}
+
+.badg.ai {
+    background: rgba(255, 76, 0, 0.2);
+    color: var(--accent-orange);
+    border: 1px solid var(--accent-orange);
+}
+
+.badg.team {
+    background: rgba(4, 30, 66, 0.8);
+    color: white;
+    border: 1px solid #4a90e2;
+}
+
+.arrow {
+    color: var(--text-gray);
+}

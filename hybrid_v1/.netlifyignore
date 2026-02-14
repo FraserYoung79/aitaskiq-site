@@ -1,0 +1,16 @@
+# Netlify Ignore List
+# Prevents internal agenty directories from being uploaded
+
+# Brain / Artifacts
+brain/
+.gemini/
+
+# Tools & Local Assets
+_tools/
+_assets/
+scripts/
+
+# System generated
+logs/
+.DS_Store
+node_modules/

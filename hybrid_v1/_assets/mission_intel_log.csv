@@ -1,0 +1,5 @@
+Timestamp,Signal_ID,Sector,Objective,AI_Complexity_Score,Status,Content_File
+2024-01-01,INIT-001,General,Daily Blogging is Dead (Core Concept),1,Active,daily-blogging-dead.html
+2024-01-01,INIT-002,Operations,The Drudgery Tax (Core Concept),1,Active,drudgery-tax.html
+2024-01-01,INIT-003,Strategy,Punching Above Weight (Core Concept),1,Active,punching-above-weight.html
+2024-01-01,INIT-004,Product,Speed as a Feature (Core Concept),1,Active,speed-as-a-feature.html

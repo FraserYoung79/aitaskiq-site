@@ -1,0 +1,108 @@
+{
+    "name": "AI Task IQ - Lead Treatment Hub",
+    "nodes": [
+        {
+            "parameters": {
+                "path": "mission-uplink",
+                "responseMode": "lastNode",
+                "options": {}
+            },
+            "name": "Webhook: Initial Contact",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "model": "gpt-4o-mini",
+                "prompt": {
+                    "messages": [
+                        {
+                            "role": "system",
+                            "content": "You are a Strategic Analyst for an AI Agency. Analyze this lead.\n\nInput Data:\n- Name: {{ $json.body.data.name }}\n- Email: {{ $json.body.data.email }}\n- Objective: {{ $json.body.data.objective }}\n\nOutput JSON:\n{\n  \"complexity_score\": (1-10),\n  \"summary\": \"1 sentence summary of their pain point\",\n  \"sector_fit\": \"High/Med/Low\"\n}"
+                        }
+                    ]
+                }
+            },
+            "name": "AI: Analysis (Pre-Flight)",
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+                500,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "operation": "append",
+                "documentId": {
+                    "__rl": true,
+                    "mode": "url",
+                    "value": "YOUR_GOOGLE_SHEET_ID"
+                },
+                "sheetName": "Mission Intel",
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "Timestamp": "={{ $now }}",
+                        "Email": "={{ $node['Webhook: Initial Contact'].json.body.data.email }}",
+                        "Objective": "={{ $node['Webhook: Initial Contact'].json.body.data.objective }}",
+                        "Complexity": "={{ $json.complexity_score }}",
+                        "Status": "Pending Briefing"
+                    }
+                }
+            },
+            "name": "Log: Mission Intel",
+            "type": "n8n-nodes-base.noOp",
+            "typeVersion": 1,
+            "position": [
+                750,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "toEmail": "={{ $node['Webhook: Initial Contact'].json.body.data.email }}",
+                "subject": "Mission Acknowledged: Protocol Initialized",
+                "html": "<div style=\"font-family: monospace; color: #041E42;\">\n  <p>Commencing Analysis of [{{ $node['AI: Analysis (Pre-Flight)'].json.summary }}]...</p>\n  <p>To authorize sovereign architecture construction, I need your full specifications.</p>\n  <p><strong><a href=\"https://aitaskiq.com/briefing.html\" style=\"color: #FF4C00;\">>>> ACCESS SECURE BRIEFING PROTOCOL</a></strong></p>\n  <br>\n  <p>Awaiting Data.</p>\n  <p>Fraser Young // Mission Director</p>\n</div>"
+            },
+            "name": "Email: Instant Uplink",
+            "type": "n8n-nodes-base.gmail",
+            "typeVersion": 2,
+            "position": [
+                1000,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "path": "briefing-uplink",
+                "responseMode": "lastNode",
+                "options": {}
+            },
+            "name": "Webhook: Deep Dive (Briefing)",
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                250,
+                600
+            ]
+        },
+        {
+            "parameters": {
+                "chatId": "YOUR_SLACK_OR_DISCORD_ID",
+                "text": "🚨 **HIGH VALUE TARGET DETECTED**\n\n**Client**: {{ $json.body.data.name }} ({{ $json.body.data.organization }})\n**Budget**: {{ $json.body.data.budget }}\n**Pain Point**: {{ $json.body.data.pain_point }}\n**Stack**: {{ $json.body.data.stack }}\n\n<https://aitaskiq.com/admin/leads|View Dossier>"
+            },
+            "name": "Alert: Mission Director",
+            "type": "n8n-nodes-base.slack",
+            "typeVersion": 1,
+            "position": [
+                500,
+                600
+            ]
+        }
+    ]
+}

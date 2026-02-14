@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol Initialization | AI TASK IQ</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="bg-glow-orb"></div>
+    <div class="scanlines"></div>
+
+    <nav class="glass-nav">
+        <a href="/index.html" class="logo">AI TASK IQ <span class="blink">_</span></a>
+        <a href="/index.html" class="cta-button-ghost">Return to Base</a>
+    </nav>
+
+    <div class="container protocol-container">
+        <div class="glass-panel">
+            <!-- ROI Flasher -->
+            <div class="roi-flasher">
+                <span class="blink status-text">⚠ COMPLETE
+                    PROTOCOL TO UNLOCK ROI MATRIX</span>
+            </div>
+
+            <h2 class="section-title">INITIALIZE PROTOCOL</h2>
+            <p class="section-subtitle">
+                Configure the parameters for your autonomous deployment.
+            </p>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="success-panel">
+                <h2 class="section-title">MISSION UPLOADED</h2>
+                <div class="scanline-text">
+                    <p>Your briefing has been encrypted and transmission to Command is complete.</p>
+                    <p>Agent Zero will analyze the intel and establish a secure uplink shortly.</p>
+                </div>
+                <div class="cta-container">
+                    <a href="/index.html" class="cta-button-ghost">RETURN TO BASE</a>
+                </div>
+            </div>
+
+            <form id="uplink-form">
+                <div class="form-group">
+                    <label for="sector" class="form-label">01 // TARGET_SECTOR</label>
+                    <select id="sector" name="sector" class="glass-input" required>
+                        <option value="" disabled selected>Select Sector...</option>
+                        <option value="Legal">Legal Services</option>
+                        <option value="Medical">Healthcare / Medical</option>
+                        <option value="Construction">Construction / AEC</option>
+                        <option value="Real Estate">Real Estate</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Ecommerce">E-commerce</option>
+                        <option value="Agencies">Agencies</option>
+                        <option value="HR">HR</option>
+                        <option value="Consulting">Consulting</option>
+                        <option value="Sales">High-Ticket Sales</option>
+                        <option value="Logistics">Logistics / Transport</option>
+                        <option value="Hospitality">Hospitality / Events</option>
+                        <option value="Other">Other / Classified</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="objective" class="form-label">02 // MISSION_OBJECTIVE</label>
+                    <textarea id="objective" name="objective" class="glass-input" rows="4" required
+                        placeholder="Describe the inefficiency you wish to eliminate..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">03 // CONTACT_UPLINK</label>
+                    <input type="email" id="email" name="email" placeholder="agent@company.com" class="glass-input"
+                        required>
+                </div>
+
+                <button type="submit" id="submit-btn" class="cta-button-primary full-width flex-center">
+                    TRANSMIT REQUEST
+                </button>
+            </form>
+
+            <script>
+                document.getElementById('uplink-form').addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    const form = event.target;
+                    const submitBtn = document.getElementById('submit-btn');
+                    const originalBtnText = submitBtn.innerText;
+
+                    // 1. UI Feedback: Loading
+                    submitBtn.innerText = 'ENCRYPTING & TRANSMITTING...';
+                    submitBtn.style.opacity = '0.7';
+                    submitBtn.disabled = true;
+
+                    // 2. Prepare Payload
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData);
+                    // Add timestamp and metadata
+                    data.timestamp = new Date().toISOString();
+                    data.source = 'mission_uplink_v1_direct';
+
+                    try {
+                        // 3. Uplink via Netlify Proxy (Bypasses CORS)
+                        const response = await fetch('/.netlify/functions/uplink', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        });
+
+                        if (response.ok) {
+                            // 4. Success State
+                            form.style.display = 'none';
+                            document.getElementById('success-panel').style.display = 'block';
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            throw new Error('Server responded with ' + response.status);
+                        }
+                    } catch (error) {
+                        console.error('Uplink Failed:', error);
+                        alert('Transmission Interrupted. Please check your connection and try again.');
+                        // Reset Button
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.style.opacity = '1';
+                        submitBtn.disabled = false;
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+</body>
+
+</html>
