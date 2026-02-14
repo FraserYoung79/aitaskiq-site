@@ -102,22 +102,30 @@
                     data.timestamp = new Date().toISOString();
                     data.source = 'mission_uplink_v1_direct';
 
-                    if (response.ok) {
-                        // 4. Success State
-                        form.style.display = 'none';
-                        document.getElementById('success-panel').style.display = 'block';
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                        throw new Error('Server responded with ' + response.status);
+                    try {
+                        // 3. Uplink via Netlify Forms AJAX
+                        const response = await fetch('/', {
+                            method: 'POST',
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: new URLSearchParams(formData).toString()
+                        });
+
+                        if (response.ok) {
+                            // 4. Success State
+                            form.style.display = 'none';
+                            document.getElementById('success-panel').style.display = 'block';
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            throw new Error('Server responded with ' + response.status);
+                        }
+                    } catch (error) {
+                        console.error('Uplink Failed:', error);
+                        alert('Transmission Interrupted. Please check your connection and try again.');
+                        // Reset Button
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.style.opacity = '1';
+                        submitBtn.disabled = false;
                     }
-                } catch (error) {
-                    console.error('Uplink Failed:', error);
-                    alert('Transmission Interrupted. Please check your connection and try again.');
-                    // Reset Button
-                    submitBtn.innerText = originalBtnText;
-                    submitBtn.style.opacity = '1';
-                    submitBtn.disabled = false;
-                }
                 });
             </script>
         </div>
