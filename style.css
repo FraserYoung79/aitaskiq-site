@@ -32,6 +32,30 @@
     display: none;
 }
 
+/* ROI CALCULATOR ENHANCEMENTS */
+.reclaimable-stack {
+    margin-top: 25px !important;
+    border: none !important;
+    align-items: baseline !important;
+}
+
+.label-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-orange {
+    color: var(--accent-orange) !important;
+    opacity: 1 !important;
+    font-weight: bold !important;
+    font-size: 0.9rem !important;
+}
+
+.calc-res-sub {
+    font-size: 0.6rem;
+    opacity: 0.4;
+}
+
 * {
     margin: 0;
     padding: 0;
