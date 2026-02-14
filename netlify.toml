@@ -1,5 +1,5 @@
 [build]
-  publish = "hybrid_v1"
+  publish = "hybrid_v1/public"
   
 [[redirects]]
   from = "/*"

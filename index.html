@@ -4,71 +4,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Task IQ | The Generative Force</title>
-    <link rel="stylesheet" href="flagship.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;800&display=swap"
+    <title>AI Task IQ | Autonomous Workforce Engineering & Business Automation</title>
+    <meta name="description"
+        content="We engineer sovereign digital workforce architectures that reclaim 1,000+ hours of human potential per year. Automate your intake, sales, and operations.">
+    <meta name="keywords"
+        content="AI Agency, Automation, Business Efficiency, AI Workforce, Process Automation, Small Business AI">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aitaskiq.com/">
+    <meta property="og:title" content="AI Task IQ | The Autonomous Workforce Agency">
+    <meta property="og:description"
+        content="Deploy your autonomous workforce. We replace chaos with clarity using custom AI agents.">
+    <!-- <meta property="og:image" content="https://aitaskiq.com/assets/social-share.png"> -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aitaskiq.com/">
+    <meta property="twitter:title" content="AI Task IQ | The Autonomous Workforce Agency">
+    <meta property="twitter:description"
+        content="Deploy your autonomous workforce. We replace chaos with clarity using custom AI agents.">
+    <!-- <meta property="twitter:image" content="https://aitaskiq.com/assets/social-share.png"> -->
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "AI Task IQ",
+      "image": "https://aitaskiq.com/assets/article-1.png",
+      "description": "AI Agency specializing in business process automation, digital workforce engineering, and sovereign agentic architectures.",
+      "url": "https://aitaskiq.com",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CA"
+      },
+      "areaServed": ["WorldWide", "North America"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Automation Services",
+        "itemListElement": [
+          {
+            "@type": "Service",
+            "name": "AI Workflow Audits",
+            "description": "Comprehensive analysis of business operations to identify automation potential."
+          },
+          {
+            "@type": "Service",
+            "name": "Custom Agent Development",
+            "description": "Engineering of autonomous digital workers for complex business tasks."
+          },
+          {
+            "@type": "Service",
+            "name": "Agentic Lead Generation",
+            "description": "Autonomous scout swarms for real-time lead discovery and personalized outreach."
+          }
+        ]
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="process_styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <div class="bg-atmosphere"></div>
-    <div class="noise"></div>
 
-    <nav>
-        <div class="logo-wrap">
-            <img src="file:///Users/fraseryoung/.gemini/antigravity/brain/de6f6b83-1f7e-4b53-9490-eb20829b7d72/logo_base_seamless_no_pulse_aitaskiq_1770244324162.png"
-                alt="AI TASK IQ" class="logo-img">
-            <div style="font-family: 'Outfit'; font-weight: 800; font-size: 1.5rem; letter-spacing: -1px;">AI TASK IQ
-            </div>
+    <!-- Background Elements -->
+    <div class="bg-glow-orb"></div>
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <a href="/index.html" class="logo">AI TASK IQ <span class="blink">_</span></a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" title="Toggle Navigation">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a href="/index.html">Operations</a>
+            <a href="/insights.html">Mission Intel</a>
+            <a href="/about.html">Mission Data</a>
+            <a href="/questionnaire.html" class="cta-button-small">Initialize Protocol</a>
         </div>
-        <div style="font-size: 0.75rem; font-weight: 700; opacity: 0.5; letter-spacing: 2px;">V3.1_DEPLOYED</div>
     </nav>
 
-    <main class="hero">
-        <div class="hero-main">
-            <!-- Living Pulse Section -->
-            <div class="pulse-container">
-                <svg viewBox="0 0 500 150" class="heartbeat-svg">
-                    <path class="heartbeat-track" d="M0,75 L150,75 L180,40 L220,110 L260,20 L300,130 L350,75 L500,75" />
-                    <path class="heartbeat-glint" d="M0,75 L150,75 L180,40 L220,110 L260,20 L300,130 L350,75 L500,75" />
-                </svg>
-            </div>
-
-            <h1>Deploy the <span class="orange-glow">Autonomous</span> Force.</h1>
-            <p>We are the engineers of the Generative Era. Our labor force doesn't sleep—it scouts, audits, and builds
-                your revenue while you command from the center.</p>
-        </div>
-
-        <section class="funnel-card">
-            <h2>What industry are we optimizing?</h2>
-            <div class="industry-grid">
-                <div class="industry-item" onclick="selectIndustry('legal')">
-                    <span>⚖️</span>
-                    <h3>Legal Services</h3>
-                    <p>High-ticket redesigns & digital intake automation for Law Firms.</p>
-                </div>
-                <div class="industry-item" onclick="selectIndustry('health')">
-                    <span>🩺</span>
-                    <h3>Healthcare</h3>
-                    <p>Precision patient flow audits and medical SEO ecosystems.</p>
-                </div>
-                <div class="industry-item" onclick="selectIndustry('aec')">
-                    <span>🏗️</span>
-                    <h3>Construction / AEC</h3>
-                    <p>Data-driven bid acquisition and industrial brand authority.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Rocket Launch Animation -->
+            <div class="rocket-container">
+                <div class="rocket-icon">🚀</div>
+                <div class="rocket-exhaust">
+                    <span class="exhaust-particle fire"></span>
+                    <span class="exhaust-particle smoke smoke-1"></span>
+                    <span class="exhaust-particle smoke smoke-2"></span>
+                    <span class="exhaust-particle smoke smoke-3"></span>
+                    <span class="exhaust-particle smoke smoke-4"></span>
+                    <span class="exhaust-particle smoke smoke-5"></span>
+                    <span class="exhaust-particle smoke smoke-6"></span>
+                    <span class="exhaust-particle smoke smoke-7"></span>
+                    <span class="exhaust-particle smoke smoke-8"></span>
+                    <span class="exhaust-particle smoke smoke-9"></span>
                 </div>
             </div>
-        </section>
 
-        <div style="padding-bottom: 100px;">
-            <button class="btn-primary" onclick="scrollToFunnel()">Commence Site Scan</button>
+            <div class="status-badge">
+                <span class="status-dot"></span> SYSTEM ONLINE // V2.1
+            </div>
+            <h1>DEPLOY THE <br><span class="text-gradient">AUTONOMOUS FORCE</span></h1>
+            <p class="hero-sub">
+                We don't just "do AI". We engineer <strong>sovereign digital workforce architectures</strong> that
+                reclaim
+                <span class="highlight">1,000+ hours</span> of human potential per year.
+            </p>
+
+            <div class="cta-group">
+                <a href="questionnaire.html" class="cta-button-primary">
+                    <span class="icon">⚡</span> COMMENCE SITE SCAN
+                </a>
+                <a href="questionnaire.html" class="cta-button-ghost">
+                    VIEW ROI MATRIX
+                </a>
+            </div>
         </div>
-    </main>
 
-    <script src="flagship.js"></script>
+        <!-- Visual Terminal / Scout Swarm -->
+        <div class="hero-visual glass-panel">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <div class="terminal-title">scout_swarm.exe</div>
+            </div>
+            <div class="terminal-body" id="terminal-output">
+                <div class="line"><span class="prompt">></span> CONNECTING TO NEURAL GRID... <span
+                        class="success">[OK]</span></div>
+                <div class="line"><span class="prompt">></span> TARGET: LEGACY_OPERATIONS</div>
+                <div class="line"><span class="prompt">></span> DETECTING INEFFICIENCIES...</div>
+                <div class="line indent">Found: Manual_Data_Entry.csv (Cost: $40k/yr)</div>
+                <div class="line indent">Found: Unanswered_Leads.log (Risk: HIGH)</div>
+                <div class="line"><span class="prompt">></span> SOLUTION GENERATED: AGENTIC_WORKFLOW_V2</div>
+                <div class="line"><span class="prompt">></span> AWAITING DEPLOYMENT...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Matrix Section -->
+    <section id="roi-matrix" class="roi-section">
+        <div class="section-header">
+            <span class="sub-label">ROI ANALYSIS</span>
+            <h2>HUMAN VS <span class="highlight">MACHINE</span></h2>
+            <p class="section-sub">The mathematical case for autonomous operations.</p>
+        </div>
+
+        <div class="roi-container">
+            <!-- ROI CALCULATOR START -->
+            <div class="roi-calc-card">
+                <div class="calc-title">INITIALIZING ROI ANALYZER</div>
+
+                <div class="calc-input-group">
+                    <div class="calc-label">
+                        <span class="label-text">TEAM SIZE</span>
+                        <span class="label-val" id="teamSizeVal">12 UNIT(S)</span>
+                    </div>
+                    <input type="range" id="teamSize" class="roi-slider" min="1" max="100" value="12">
+                </div>
+
+                <div class="calc-input-group">
+                    <div class="calc-label">
+                        <span class="label-text">HOURLY RATE (AVG)</span>
+                        <span class="label-val" id="hourlyRateVal">$45/HR</span>
+                    </div>
+                    <input type="range" id="hourlyRate" class="roi-slider" min="20" max="250" step="5" value="45">
+                </div>
+
+                <div class="calc-results">
+                    <div class="calc-result-item">
+                        <span class="calc-res-label">Traditional Labor Cost (Yearly)</span>
+                        <span class="calc-res-val" id="laborCost">$1,123,200</span>
+                    </div>
+                    <div class="calc-result-item">
+                        <span class="calc-res-label">Agentic reclaimed hours</span>
+                        <span class="calc-res-val" id="hours">+4,992 HRS</span>
+                    </div>
+                    <div class="calc-result-item" style="margin-top: 25px; border: none; align-items: baseline;">
+                        <div style="display: flex; flex-direction: column;">
+                            <span class="calc-res-label"
+                                style="color: var(--accent-orange); opacity: 1; font-weight: bold; font-size: 0.9rem;">RECLAIMABLE
+                                VALUE</span>
+                            <span style="font-size: 0.6rem; opacity: 0.4;">ESTIMATED ANNUAL MINIMUM</span>
+                        </div>
+                        <span class="calc-res-val roi-highlight" id="roi">$224,640</span>
+                    </div>
+                </div>
+
+                <div class="calc-footer">
+                    <span>STOCHASTIC SYSTEM // B.09</span>
+                    <span>AITASKIQ V2.12</span>
+                </div>
+            </div>
+            <!-- ROI CALCULATOR END -->
+
+            <div class="text-center mt-3">
+                <a href="questionnaire.html" class="cta-button-primary">DEPLOY THE ADVANTAGE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Explainer Section -->
+    <section class="video-section">
+        <link rel="stylesheet" href="video_section.css">
+
+        <div class="laptop-wrapper">
+            <div class="laptop-screen">
+                <div class="camera-dot"></div>
+                <div class="screen-reflection"></div>
+
+                <!-- Content -->
+                <div class="screen-content">
+                    <video id="briefing-video" controls autoplay muted loop>
+                        <source src="../assets/master_explainer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="laptop-base">
+                <div class="laptop-notch"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (4 Steps) -->
+    <section class="process-section">
+        <div class="section-header">
+            <span class="sub-label">OUR PROCESS</span>
+            <h2>FROM CHAOS TO CLARITY <br> IN <span class="highlight">4 STEPS</span></h2>
+        </div>
+
+        <div class="process-steps">
+            <!-- Step 1 -->
+            <div class="step-card glass-panel">
+                <div class="step-number">01</div>
+                <div class="step-icon" aria-label="Magnifying glass icon representing business audit">🔍</div>
+                <h3>Audit</h3>
+                <p>We analyze your current workflows to identify high-impact automation opportunities.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="step-card glass-panel">
+                <div class="step-number">02</div>
+                <div class="step-icon" aria-label="Gears icon representing system building and configuration">⚙️</div>
+                <h3>Build</h3>
+                <p>Our team configures custom AI agents tailored to your specific business rules.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="step-card glass-panel">
+                <div class="step-number">03</div>
+                <div class="step-icon" aria-label="Rocket icon representing system deployment and launch">🚀</div>
+                <h3>Deploy</h3>
+                <p>We seamlessly integrate the agents into your existing stack with zero downtime.</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="step-card glass-panel">
+                <div class="step-number">04</div>
+                <div class="step-icon" aria-label="Bar chart icon representing performance monitoring and scaling">📈
+                </div>
+                <h3>Scale</h3>
+                <p>Monitor performance and continuously optimize your new automated workforce.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section (Tasks) -->
+    <!-- Capabilities Section (Tasks) -->
+    <section class="grid-section" id="services">
+        <div class="section-header">
+            <span class="sub-label">CAPABILITIES</span>
+            <h2>TASKS WE TAKE OFF <br> YOUR PLATE <span class="highlight">FOREVER</span></h2>
+            <p class="section-sub">Reclaim your time by letting AI handle the repetitive manual work.</p>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Card 1 -->
+            <div class="bento-card glass-panel">
+                <div class="card-left-col">
+                    <div class="card-icon" aria-label="Lightning bolt icon for rapid lead intake">⚡</div>
+                </div>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Lead Intake</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Instantly filter and qualify incoming leads 24/7 across email, forms, and chat.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bento-card glass-panel">
+                <div class="card-left-col">
+                    <div class="card-icon" aria-label="Speech bubble icon for automated smart follow-ups">💬</div>
+                </div>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Smart Follow-ups</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Nurture prospects with automated, personalized messages until they convert.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bento-card glass-panel">
+                <div class="card-left-col">
+                    <div class="card-icon" aria-label="Sync arrows icon for CRM data synchronization">🔄</div>
+                </div>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>CRM Sync</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Keep customer data synchronized across Salesforce, HubSpot, and Pipedrive.</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bento-card glass-panel">
+                <div class="card-left-col">
+                    <div class="card-icon">📅</div>
+                </div>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Scheduling</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Automate calendar bookings, rescheduling, and appointment reminders.</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bento-card glass-panel">
+                <div class="card-left-col">
+                    <div class="card-icon">📄</div>
+                </div>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Invoicing</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Generate and send estimates, track payments, and follow up.</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bento-card glass-panel">
+                <div class="card-left-col">
+                    <div class="card-icon">🔀</div>
+                </div>
+                <div class="card-right-col">
+                    <div class="card-title-row">
+                        <h3>Routing</h3>
+                        <div class="card-check">✔</div>
+                    </div>
+                    <p>Seamlessly hand off complex tasks between AI agents and human teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Sectors Grid (Redesigned) -->
+    <section class="process-section sector-section-padding" id="sectors">
+        <div class="section-header">
+            <span class="sub-label">TARGET SECTORS</span>
+            <h2>BUILT FOR <span class="highlight">YOUR INDUSTRY</span></h2>
+        </div>
+
+        <div class="sector-grid">
+            <!-- Legal -->
+            <div class="sector-card">
+                <div class="sector-icon">⚖️</div>
+                <div class="sector-info">
+                    <h4>Legal</h4>
+                    <p>Intake & Research</p>
+                </div>
+            </div>
+            <!-- Medical -->
+            <div class="sector-card">
+                <div class="sector-icon">⚕️</div>
+                <div class="sector-info">
+                    <h4>Medical</h4>
+                    <p>Triage & Booking</p>
+                </div>
+            </div>
+            <!-- Trades -->
+            <div class="sector-card">
+                <div class="sector-icon">🏗️</div>
+                <div class="sector-info">
+                    <h4>Construction</h4>
+                    <p>Bids & Tracking</p>
+                </div>
+            </div>
+            <!-- Real Estate -->
+            <div class="sector-card">
+                <div class="sector-icon">🏠</div>
+                <div class="sector-info">
+                    <h4>Real Estate</h4>
+                    <p>Leads & Showings</p>
+                </div>
+            </div>
+            <!-- Finance -->
+            <div class="sector-card">
+                <div class="sector-icon">💰</div>
+                <div class="sector-info">
+                    <h4>Finance</h4>
+                    <p>Tax & Compliance</p>
+                </div>
+            </div>
+            <!-- E-comm -->
+            <div class="sector-card">
+                <div class="sector-icon">🛍️</div>
+                <div class="sector-info">
+                    <h4>E-commerce</h4>
+                    <p>Support & Orders</p>
+                </div>
+            </div>
+            <!-- Agencies -->
+            <div class="sector-card">
+                <div class="sector-icon">📢</div>
+                <div class="sector-info">
+                    <h4>Agencies</h4>
+                    <p>Reports & Content</p>
+                </div>
+            </div>
+            <!-- Recruitment -->
+            <div class="sector-card">
+                <div class="sector-icon">🤝</div>
+                <div class="sector-info">
+                    <h4>HR</h4>
+                    <p>Screening & Interviews</p>
+                </div>
+            </div>
+            <!-- Consulting -->
+            <div class="sector-card">
+                <div class="sector-icon">💼</div>
+                <div class="sector-info">
+                    <h4>Consulting</h4>
+                    <p>Onboarding</p>
+                </div>
+            </div>
+            <!-- High-Ticket Sales -->
+            <div class="sector-card">
+                <div class="sector-icon">🎯</div>
+                <div class="sector-info">
+                    <h4>Sales</h4>
+                    <p>Lead Gen & Outreach</p>
+                </div>
+            </div>
+            <!-- Logistics -->
+            <div class="sector-card">
+                <div class="sector-icon">🚚</div>
+                <div class="sector-info">
+                    <h4>Logistics</h4>
+                    <p>Dispatch & Routing</p>
+                </div>
+            </div>
+            <!-- Hospitality -->
+            <div class="sector-card">
+                <div class="sector-icon">🥂</div>
+                <div class="sector-info">
+                    <h4>Hospitality</h4>
+                    <p>Booking & Guest Services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo-small">AI TASK IQ // EST. 2024</div>
+            <div class="footer-location">EDMONTON OPERATIONS COMMAND [YEG]</div>
+            <div class="footer-links">
+                <a href="#">Privacy Protocol</a>
+                <a href="#">System Status</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
     <script>
-        function scrollToFunnel() {
-            document.querySelector('.funnel-card').scrollIntoView({ behavior: 'smooth' });
+        // ROI CALCULATOR LOGIC
+        const teamSize = document.getElementById('teamSize');
+        const hourlyRate = document.getElementById('hourlyRate');
+        const teamSizeVal = document.getElementById('teamSizeVal');
+        const hourlyRateVal = document.getElementById('hourlyRateVal');
+
+        const laborCostDisplay = document.getElementById('laborCost');
+        const hoursDisplay = document.getElementById('hours');
+        const roiDisplay = document.getElementById('roi');
+
+        function updateCalculations() {
+            if (!teamSize || !hourlyRate) return;
+            const size = parseInt(teamSize.value);
+            const rate = parseInt(hourlyRate.value);
+
+            teamSizeVal.innerText = size + ' UNIT(S)';
+            hourlyRateVal.innerText = '$' + rate + '/HR';
+
+            const yearlyLaborCost = size * rate * 2080;
+            const reclaimedHours = size * 2080 * 0.20;
+            const reclaimedValue = reclaimedHours * rate;
+
+            laborCostDisplay.innerText = '$' + yearlyLaborCost.toLocaleString();
+            hoursDisplay.innerText = '+' + Math.round(reclaimedHours).toLocaleString() + ' HRS';
+            roiDisplay.innerText = '$' + Math.round(reclaimedValue).toLocaleString();
+        }
+
+        if (teamSize && hourlyRate) {
+            teamSize.addEventListener('input', updateCalculations);
+            hourlyRate.addEventListener('input', updateCalculations);
+            updateCalculations();
         }
     </script>
 </body>
