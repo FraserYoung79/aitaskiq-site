@@ -121,7 +121,7 @@
                         }
                     } catch (error) {
                         console.error('Uplink Failed:', error);
-                        alert('Transmission Interrupted. Please check your connection and try again.');
+                        alert('Transmission Interrupted (' + error.message + '). Please check your connection and try again.');
                         // Reset Button
                         submitBtn.innerText = originalBtnText;
                         submitBtn.style.opacity = '1';
