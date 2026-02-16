@@ -110,6 +110,30 @@
                             body: JSON.stringify(data)
                         });
 
+                        // 3b. [NEW] Transmit to Lead Intake Hub (Local Dashboard)
+                        try {
+                            // Prepare payload for local dashboard
+                            const webhookPayload = {
+                                api_key: "antigravity-webhook-2026",
+                                "full-name": "Incoming Lead", // Form doesn't have name field, reusing placeholder
+                                "company-name": data.sector + " Sector", // Mapping sector to company for now
+                                "email": data.email,
+                                "team-size": "1", // Default
+                                "hourly-rate": "0", // Default
+                                "mission-brief": data.objective
+                            };
+
+                            // Send to ngrok tunnel (fails silently if tunnel is down)
+                            fetch('https://erudite-nonfrigidly-lamar.ngrok-free.dev/webhook/lead', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(webhookPayload)
+                            }).catch(err => console.log('Local webhook skipped:', err));
+
+                        } catch (e) {
+                            console.log('Webhook error ignored');
+                        }
+
                         if (response.ok) {
                             // 4. Success State
                             form.style.display = 'none';
