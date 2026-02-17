@@ -3,3 +3,7 @@
 /success/          /active-mission.html    301!
 /success           /active-mission.html    301!
 /success.html      /active-mission.html    301!
+
+# Explicit File Mappings (Force 200 to avoid SPA routing issues)
+/active-mission   /active-mission.html   200
+/questionnaire    /questionnaire.html    200
