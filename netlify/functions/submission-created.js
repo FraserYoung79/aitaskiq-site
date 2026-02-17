@@ -1,7 +1,21 @@
 const nodemailer = require('nodemailer');
+const fetch = require('node-fetch'); // Ensure fetch is available
 
 exports.handler = async (event) => {
     console.log("📨 Submission Received. Initializing Auto-Responder...");
+
+    // FLIGHT RECORDER: Send logs to local debugger
+    const logToBridge = async (data) => {
+        try {
+            await fetch('https://erudite-nonfrigidly-lamar.ngrok-free.dev/webhook/test', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+        } catch (e) {
+            console.error("Flight Recorder Failed:", e);
+        }
+    };
 
     // 1. Parse Payload
     let payload;
@@ -10,6 +24,7 @@ exports.handler = async (event) => {
         payload = body.payload; // Netlify wraps form data in a 'payload' object
     } catch (e) {
         console.error("❌ Invalid JSON payload:", e);
+        await logToBridge({ error: "Invalid JSON payload", details: e.message });
         return { statusCode: 400, body: "Invalid JSON" };
     }
 
@@ -17,26 +32,27 @@ exports.handler = async (event) => {
     const { email, data } = payload;
     const sector = data.sector || "General";
     const objective = data.objective || "No objective provided";
-    const name = data['full-name'] || "Agent";
 
-    console.log(`👤 Sending receipt to: ${email} (${sector})`);
+    console.log(`👤 Sending receipt to: ${email}`);
 
     // 3. Configure Transporter (SMTP)
     // NOTE: User must provide EMAIL_USER and EMAIL_PASS in Netlify Env Vars
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-        console.error("❌ MISSING CREDENTIALS: EMAIL_USER or EMAIL_PASS not set in Netlify.");
+        const errorMsg = "MISSING CREDENTIALS: EMAIL_USER or EMAIL_PASS not set in Netlify.";
+        console.error(`❌ ${errorMsg}`);
+        await logToBridge({ error: errorMsg, trigger: "env_check" });
         return { statusCode: 500, body: "Server Error: Missing Email Credentials" };
     }
 
     const transporter = nodemailer.createTransport({
-        service: 'gmail', // Built-in support for Gmail (requires App Password)
+        service: 'gmail',
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
         }
     });
 
-    // 4. Draft Email Content (Glassmorphic / Cyberpunk Style - Text Only for specific clients, HTML for others)
+    // 4. Draft Email Content
     const mailOptions = {
         from: `"AI Task IQ Command" <${process.env.EMAIL_USER}>`,
         to: email,
@@ -64,9 +80,11 @@ exports.handler = async (event) => {
     try {
         await transporter.sendMail(mailOptions);
         console.log("✅ Application Receipt Sent Successfully.");
+        await logToBridge({ success: true, recipient: email });
         return { statusCode: 200, body: "Email Sent" };
     } catch (error) {
         console.error("❌ Email Sending Failed:", error);
+        await logToBridge({ error: "Email Saving Failed", details: error.message, stack: error.stack });
         return { statusCode: 500, body: `Email Failed: ${error.message}` };
     }
 };
