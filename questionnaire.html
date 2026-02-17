@@ -104,8 +104,8 @@
 
                     try {
                         // 3. Uplink via Netlify Forms (Restored for Email Notifications)
-                        // We post to "/" with url-encoded body to trigger Netlify's built-in form handler
-                        const response = await fetch('/', {
+                        // We post to "/questionnaire.html" (Explicit path required for Netlify detection)
+                        const response = await fetch('/questionnaire.html', {
                             method: 'POST',
                             headers: { "Content-Type": "application/x-www-form-urlencoded" },
                             body: new URLSearchParams(formData).toString()
