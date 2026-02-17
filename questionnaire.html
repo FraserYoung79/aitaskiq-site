@@ -43,8 +43,8 @@
                 </div>
             </div>
 
-            <form id="uplink-form" name="mission-capture-v3" method="POST" data-netlify="true"
-                action="/questionnaire.html">
+            <!-- ACTION: Redirect to confirmed.html after Netlify processes the form -->
+            <form id="uplink-form" name="mission-capture-v3" method="POST" data-netlify="true" action="/confirmed.html">
                 <input type="hidden" name="form-name" value="mission-capture-v3" />
                 <div class="form-group">
                     <label for="sector" class="form-label">01 // TARGET_SECTOR</label>
@@ -84,73 +84,43 @@
             </form>
 
             <script>
-                document.getElementById('uplink-form').addEventListener('submit', async function (event) {
-                    event.preventDefault();
+                document.getElementById('uplink-form').addEventListener('submit', function (event) {
+                    // DO NOT preventDefault - Let Netlify handle the submission and redirect
 
                     const form = event.target;
                     const submitBtn = document.getElementById('submit-btn');
-                    const originalBtnText = submitBtn.innerText;
 
-                    // 1. UI Feedback: Loading
-                    submitBtn.innerText = 'ENCRYPTING & TRANSMITTING...';
+                    // UI Feedback (Briefly show status before redirect)
+                    submitBtn.innerText = 'TRANSMITTING...';
                     submitBtn.style.opacity = '0.7';
-                    submitBtn.disabled = true;
 
-                    // 2. Prepare Payload
+                    // Prepare Data
                     const formData = new FormData(form);
                     const data = Object.fromEntries(formData);
-                    // Add timestamp and metadata
-                    data.timestamp = new Date().toISOString();
-                    data.source = 'mission_uplink_v1_direct';
 
+                    // Webhook Payload
+                    const webhookPayload = {
+                        api_key: "antigravity-webhook-2026",
+                        "full-name": "Incoming Lead",
+                        "company-name": (data.sector || "Unknown") + " Sector",
+                        "email": data.email,
+                        "team-size": "1",
+                        "mission-brief": data.objective,
+                        "source": "mission_uplink_v1_native"
+                    };
+
+                    // Send to ngrok tunnel using KEEPALIVE (survives page navigation)
+                    // We use 'no-cors' to prevent the browser from waiting or blocking on the response
                     try {
-                        // 3. Uplink via Netlify Forms (Restored for Email Notifications)
-                        // We post to "/questionnaire.html" to match the exact legacy configuration
-                        const response = await fetch('/questionnaire.html', {
+                        fetch('https://erudite-nonfrigidly-lamar.ngrok-free.dev/webhook/lead', {
                             method: 'POST',
-                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                            body: new URLSearchParams(formData).toString()
-                        });
-
-                        // 3b. [NEW] Transmit to Lead Intake Hub (Local Dashboard)
-                        try {
-                            // Prepare payload for local dashboard
-                            const webhookPayload = {
-                                api_key: "antigravity-webhook-2026",
-                                "full-name": "Incoming Lead", // Form doesn't have name field, reusing placeholder
-                                "company-name": data.sector + " Sector", // Mapping sector to company for now
-                                "email": data.email,
-                                "team-size": "1", // Default
-                                "hourly-rate": "0", // Default
-                                "mission-brief": data.objective
-                            };
-
-                            // Send to ngrok tunnel (fails silently if tunnel is down)
-                            fetch('https://erudite-nonfrigidly-lamar.ngrok-free.dev/webhook/lead', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(webhookPayload)
-                            }).catch(err => console.log('Local webhook skipped:', err));
-
-                        } catch (e) {
-                            console.log('Webhook error ignored');
-                        }
-
-                        if (response.ok) {
-                            // 4. Success State
-                            form.style.display = 'none';
-                            document.getElementById('success-panel').style.display = 'block';
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        } else {
-                            throw new Error('Server responded with ' + response.status);
-                        }
-                    } catch (error) {
-                        console.error('Uplink Failed:', error);
-                        alert('Transmission Interrupted (' + error.message + '). Please check your connection and try again.');
-                        // Reset Button
-                        submitBtn.innerText = originalBtnText;
-                        submitBtn.style.opacity = '1';
-                        submitBtn.disabled = false;
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(webhookPayload),
+                            keepalive: true,
+                            mode: 'no-cors'
+                        }).catch(err => console.error('BG Uplink Error:', err));
+                    } catch (e) {
+                        console.error('BG Uplink Failed');
                     }
                 });
             </script>
