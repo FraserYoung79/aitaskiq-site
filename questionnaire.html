@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <form id="uplink-form" method="POST">
+            <form id="uplink-form" name="mission-capture-v3" method="POST" data-netlify="true">
                 <input type="hidden" name="form-name" value="mission-capture-v3" />
                 <div class="form-group">
                     <label for="sector" class="form-label">01 // TARGET_SECTOR</label>
@@ -103,11 +103,12 @@
                     data.source = 'mission_uplink_v1_direct';
 
                     try {
-                        // 3. Uplink via Netlify Function (The Bulletproof Way)
-                        const response = await fetch('/.netlify/functions/uplink', {
+                        // 3. Uplink via Netlify Forms (Restored for Email Notifications)
+                        // We post to "/" with url-encoded body to trigger Netlify's built-in form handler
+                        const response = await fetch('/', {
                             method: 'POST',
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(data)
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: new URLSearchParams(formData).toString()
                         });
 
                         // 3b. [NEW] Transmit to Lead Intake Hub (Local Dashboard)
