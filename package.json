@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "description": "Serverless functions for AI Task IQ Agency",
     "dependencies": {
-        "nodemailer": "^6.9.13",
         "node-fetch": "^3.3.2"
     }
 }
