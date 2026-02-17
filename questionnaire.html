@@ -43,8 +43,8 @@
                 </div>
             </div>
 
-            <!-- ACTION: Redirect to confirmed.html after Netlify processes the form -->
-            <form id="uplink-form" name="mission-capture-v3" method="POST" data-netlify="true" action="/confirmed.html">
+            <!-- ACTION: Redirect to /confirmed (Pretty URL) to avoid 404 on .html extension -->
+            <form id="uplink-form" name="mission-capture-v3" method="POST" data-netlify="true" action="/confirmed">
                 <input type="hidden" name="form-name" value="mission-capture-v3" />
                 <div class="form-group">
                     <label for="sector" class="form-label">01 // TARGET_SECTOR</label>
