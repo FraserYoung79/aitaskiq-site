@@ -43,7 +43,8 @@
                 </div>
             </div>
 
-            <form id="uplink-form" name="mission-capture-v3" method="POST" data-netlify="true" action="/questionnaire">
+            <form id="uplink-form" name="mission-capture-v3" method="POST" data-netlify="true"
+                action="/questionnaire.html">
                 <input type="hidden" name="form-name" value="mission-capture-v3" />
                 <div class="form-group">
                     <label for="sector" class="form-label">01 // TARGET_SECTOR</label>
@@ -104,8 +105,8 @@
 
                     try {
                         // 3. Uplink via Netlify Forms (Restored for Email Notifications)
-                        // We post to "/questionnaire" to match the Pretty URL (no .html)
-                        const response = await fetch('/questionnaire', {
+                        // We post to "/questionnaire.html" to match the exact legacy configuration
+                        const response = await fetch('/questionnaire.html', {
                             method: 'POST',
                             headers: { "Content-Type": "application/x-www-form-urlencoded" },
                             body: new URLSearchParams(formData).toString()
